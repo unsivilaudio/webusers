@@ -110,15 +110,22 @@ input {
         & .user-form {
             background-color: #d1d1d1;
             border-radius: 1rem;
-            padding: 1.5rem;
+            padding: 0 1.5rem;
+            padding-bottom: 1.5rem;
             margin-top: 2.5rem;
             font-size: 2rem;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
+
+            & .form-group,
+            & .button-group {
+                padding-top: 1.5rem;
+            }
 
             & .form-group {
                 height: 100%;
-                flex: 1 1 50%;
+                flex: 1 1 40%;
                 display: flex;
 
                 & input {
@@ -131,6 +138,9 @@ input {
             }
 
             & .button-group {
+                flex-shrink: 0;
+                margin-left: auto;
+
                 & button {
                     color: #eee;
                     background: #eb7465;
