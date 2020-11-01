@@ -1,9 +1,7 @@
 import './assets/stylesheets/main.scss';
 import User from './models/User';
 
-const user = new User({ name: 'Tim Tebo', age: 41 });
+const user = new User({ id: 1, name: 'Alan Iverson', age: 23 });
+user.save();
 
-user.on('change', () => console.log('Hi there!'));
-user.on('click', () => console.log('User was Clicked'));
-
-user.trigger('click');
+setTimeout(() => console.log(user), 1000);

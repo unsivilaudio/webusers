@@ -1,4 +1,7 @@
+import axios, { AxiosResponse } from 'axios';
+
 interface UserProps {
+    id?: number;
     name?: string;
     age?: number;
 }
@@ -30,6 +33,24 @@ class User {
         if (!handlers || handlers.length === 0) return;
 
         handlers.forEach(cb => cb());
+    }
+
+    fetch(): void {
+        axios
+            .get(`http://localhost:3000/users/${this.get('id')}`)
+            .then((res: AxiosResponse): void => {
+                this.set(res.data);
+            });
+    }
+
+    save(): void {
+        const method = this.data.id ? 'put' : 'post';
+        const params = method === 'put' ? `/${this.data.id}` : null;
+        axios[method]('http://localhost:3000/users' + params, this.data).then(
+            (res: AxiosResponse) => {
+                this.set(res.data);
+            }
+        );
     }
 }
 

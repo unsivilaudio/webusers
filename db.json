@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alan Iverson",
+      "age": 23
+    },
+    {
+      "name": "John Smith",
+      "age": 42,
+      "id": 2
+    },
+    {
+      "name": "Alan Iverson",
+      "age": 42,
+      "id": 3
+    }
+  ]
+}

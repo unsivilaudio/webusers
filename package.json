@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "parcel index.html -p 8000 --open",
+        "start:db": "json-server -w db.json",
         "build": "parcel build --public-url . index.html"
     },
     "devDependencies": {
@@ -13,6 +14,7 @@
     },
     "dependencies": {
         "@types/faker": "^5.1.3",
+        "axios": "^0.21.0",
         "faker": "^5.1.0"
     },
     "keywords": [],
