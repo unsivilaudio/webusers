@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
+import Eventing from './Eventing';
+import Sync from './Sync';
 
 interface UserProps {
     id?: number;
@@ -6,10 +7,11 @@ interface UserProps {
     age?: number;
 }
 
-type Callback = () => void;
+const rootUrl = 'http://localhost:3000/users';
 
 class User {
-    events: { [key: string]: Callback[] } = {};
+    events: Eventing = new Eventing();
+    sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
 
     constructor(private data: UserProps) {}
 
@@ -21,36 +23,16 @@ class User {
         Object.assign(this.data, update);
     }
 
-    on(eventName: string, callback: Callback) {
-        const handlers = this.events[eventName] || [];
-        handlers.push(callback);
-        this.events[eventName] = handlers;
-    }
-
-    trigger(eventName: string): void {
-        const handlers = this.events[eventName];
-
-        if (!handlers || handlers.length === 0) return;
-
-        handlers.forEach(cb => cb());
-    }
-
-    fetch(): void {
-        axios
-            .get(`http://localhost:3000/users/${this.get('id')}`)
-            .then((res: AxiosResponse): void => {
-                this.set(res.data);
-            });
+    fetch(id: number): void {
+        this.sync.fetch(id).then(({ data }): void => {
+            this.data = data;
+        });
     }
 
     save(): void {
-        const method = this.data.id ? 'put' : 'post';
-        const params = method === 'put' ? `/${this.data.id}` : null;
-        axios[method]('http://localhost:3000/users' + params, this.data).then(
-            (res: AxiosResponse) => {
-                this.set(res.data);
-            }
-        );
+        this.sync.save(this.data).then(({ data }) => {
+            this.data = data;
+        });
     }
 }
 
