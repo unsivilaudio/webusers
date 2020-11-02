@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "name": "Alan Iverson",
-      "age": 23
+      "name": "New User",
+      "age": 22
     },
     {
       "id": 2,
@@ -12,7 +12,7 @@
     },
     {
       "id": 3,
-      "name": "Toby McClain",
+      "name": "John McClain",
       "age": 42
     },
     {
