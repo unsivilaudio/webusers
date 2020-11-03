@@ -16,13 +16,16 @@ class Collection<T, K> {
     }
 
     fetch(): void {
-        axios.get(this.rootUrl).then(({ data }: AxiosResponse) => {
-            data.forEach((value: K) => {
-                this.models.push(this.deserialize(value));
+        axios
+            .get(this.rootUrl)
+            .then(({ data }: AxiosResponse) => {
+                data.forEach((value: K) => {
+                    this.models.push(this.deserialize(value));
+                });
+            })
+            .then(() => {
+                this.trigger('change');
             });
-        });
-
-        this.trigger('change');
     }
 }
 

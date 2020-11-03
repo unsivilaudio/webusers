@@ -8,34 +8,13 @@
     <body>
         <nav class="nav">
             <a href="/" class="brand">Users.Me</a>
-            <p class="text">// A Simple Typescript Api Demo</p>
+            <p class="text">// A Not-So Simple Typescript Framework Demo</p>
         </nav>
         <main class="main">
-            <div class="container">
-                <header>User Detail</header>
-                <ul class="detail-list">
-                    <li id="detail-name">Name: <span>John Smith</span></li>
-                    <li id="detail-age">Age: <span>42</span></li>
-                </ul>
-                <form class="user-form" id="user-form">
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Enter a new name..."
-                        />
-                    </div>
-                    <div class="button-group">
-                        <button id="updateNameBtn" type="button">
-                            Update Name
-                        </button>
-                        <button id="updateAgeBtn" type="button">
-                            Random Age
-                        </button>
-                        <button id="saveBtn">Save</button>
-                    </div>
-                </form>
-            </div>
+            <section class="container">
+                <div id="users-edit"></div>
+                <div id="users-list"></div>
+            </section>
         </main>
         <script src="./src/index.ts"></script>
     </body>

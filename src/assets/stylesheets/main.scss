@@ -163,5 +163,60 @@ input {
                 }
             }
         }
+
+        & .user-table {
+            width: 100%;
+            margin-top: 2.5rem;
+            border-collapse: collapse;
+            background: #abece6;
+
+            & tr {
+                width: 100%;
+                display: flex;
+
+                & th:nth-child(1),
+                & td:nth-child(1) {
+                    flex: 0 0 15rem;
+                    text-align: center;
+                }
+
+                & th:nth-child(2),
+                & td:nth-child(2) {
+                    flex: 1 0 50%;
+                    text-align: left;
+                }
+
+                & th:nth-child(3),
+                & td:nth-child(3) {
+                    flex: 1 0 15rem;
+                    text-align: center;
+                }
+            }
+
+            & thead {
+                background: rgba(255, 255, 255, 0.2);
+                font-size: 2rem;
+                & tr {
+                    & th {
+                        padding: 0.5rem 1.2rem;
+                    }
+                }
+            }
+
+            & tbody {
+                & tr {
+                    padding: 0.5rem 0;
+                    transition: all 0.3s ease;
+
+                    &:nth-child(even) {
+                        background: rgba(0, 0, 0, 0.1);
+                    }
+
+                    &:hover {
+                        background: #3adbcd;
+                    }
+                }
+            }
+        }
     }
 }
