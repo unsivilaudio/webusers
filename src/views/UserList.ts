@@ -10,7 +10,6 @@ export default class UserList extends CollectionView<User, UserProps> {
     }
 
     renderItems(users: User[]): void {
-        console.log('Render Items was called!');
         const userListItems = this.regions.userListItems;
         users.forEach((user: User) => {
             const item = document.createElement('tr');

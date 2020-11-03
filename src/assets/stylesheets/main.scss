@@ -108,7 +108,7 @@ input {
         }
 
         & .user-form {
-            background-color: #d1d1d1;
+            background-color: #41bad8;
             border-radius: 1rem;
             padding: 0 1.5rem;
             padding-bottom: 1.5rem;
@@ -171,6 +171,7 @@ input {
             background: #abece6;
 
             & tr {
+                padding: 0.5rem 0;
                 width: 100%;
                 display: flex;
 
@@ -194,18 +195,13 @@ input {
             }
 
             & thead {
-                background: rgba(255, 255, 255, 0.2);
+                color: #eee;
+                background: linear-gradient(to bottom right, #3adebb, #4faaff);
                 font-size: 2rem;
-                & tr {
-                    & th {
-                        padding: 0.5rem 1.2rem;
-                    }
-                }
             }
 
             & tbody {
                 & tr {
-                    padding: 0.5rem 0;
                     transition: all 0.3s ease;
 
                     &:nth-child(even) {

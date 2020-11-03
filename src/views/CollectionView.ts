@@ -10,7 +10,6 @@ export default abstract class CollectionView<T extends Model<K>, K> {
 
     bindCollection(): void {
         this.collection.on('change', () => {
-            console.log('Something Changed!');
             this.render();
         });
     }
@@ -57,7 +56,6 @@ export default abstract class CollectionView<T extends Model<K>, K> {
 
         this.mapRegions(templateElement.content);
 
-        console.log(this.collection.models.length);
         this.renderItems(this.collection.models);
 
         this.parent.append(templateElement.content);
